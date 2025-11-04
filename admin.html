@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Admin Panel - All Bookings</h2>
+    <a href="{{ url_for('logout') }}" class="admin-link">Logout</a>
+    <a href="{{ url_for('home') }}" class="admin-link">Back to Home</a>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Name</th><th>Email</th><th>Movie</th><th>Tickets</th>
+        </tr>
+        {% for b in bookings %}
+        <tr>
+            <td>{{ b[0] }}</td>
+            <td>{{ b[1] }}</td>
+            <td>{{ b[2] }}</td>
+            <td>{{ b[3] }}</td>
+            <td>{{ b[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Tickets</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <a class="admin-link" href="{{ url_for('admin') }}">Go to Admin Panel</a>
+    <h2>Book for {{ movie }}</h2>
+    <form action="{{ url_for('confirm') }}" method="POST" class="booking-form">
+        <input type="hidden" name="movie" value="{{ movie }}">
+        <input type="text" name="name" placeholder="Your Name" required><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <input type="number" name="tickets" placeholder="Number of Tickets" min="1" required><br>
+        <button type="submit">Confirm Booking</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Booking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>🎬 Welcome to Movie Booking</h1>
+    <a class="admin-link" href="{{ url_for('admin') }}">Go to Admin Panel</a>
+    <ul>
+        {% for movie in movies %}
+        <li>
+            <b>{{ movie.name }}</b> - ₹{{ movie.price }} per ticket
+            <a class="btn" href="{{ url_for('book', movie_name=movie.name) }}">Book Now</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
+
